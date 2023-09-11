@@ -9,6 +9,7 @@ class Stack
     def push(el)
       # adds an element to the stack
       ivar.push(el)
+      self
 
     end
   
@@ -21,6 +22,9 @@ class Stack
       # returns, but doesn't remove, the top element in the stack
       ivar[-1]
     end
+    def inspect 
+        "#<Stack: #{peek}"
+    end 
     private
     attr_accessor :ivar
   end
@@ -69,6 +73,11 @@ class Stack
             map.delete_at(index) if pair[0] == key 
         end 
         return nil
+    end 
+    def show
+        map.each do |pair|
+            p "#{pair[0]}: #{pair[1]}"
+        end 
     end 
     private
     attr_accessor :map
