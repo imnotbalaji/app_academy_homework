@@ -2,6 +2,12 @@ class Board
   attr_accessor :cups
 
   def initialize(name1, name2)
+    @cups = Array.new(14) {Array.new(0)}
+    @cups.each_with_index do |cup,index|
+       if index != 6 && index !=13
+        4.times { cup << :stone}
+       end 
+    end 
   end
 
   def place_stones
