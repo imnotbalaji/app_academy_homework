@@ -10,7 +10,9 @@ class Simon
   end
 
   def play
-    
+    take_turn until game_over 
+    game_over_message
+    reset_game
   end
 
   def take_turn
@@ -20,6 +22,7 @@ class Simon
       self.sequence_length = sequence_length + 1
       return true 
     else 
+      game_over = true
       return false
     end 
   end
@@ -46,5 +49,9 @@ class Simon
   end
 
   def reset_game
+    self.game_over = false
+    self.seq = []
+    self.sequence_length = 1
+    # play
   end
 end
